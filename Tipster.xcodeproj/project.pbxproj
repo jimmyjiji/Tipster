@@ -10,10 +10,10 @@
 		AF6A6A901C194F9E00D15A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */; };
 		AF6A6A921C194F9E00D15A93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6A911C194F9E00D15A93 /* ViewController.swift */; };
 		AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A6A931C194F9E00D15A93 /* Main.storyboard */; };
-		AF6A6A971C194F9E00D15A93 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF6A6A961C194F9E00D15A93 /* Assets.xcassets */; };
-		AF6A6A9A1C194F9E00D15A93 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A6A981C194F9E00D15A93 /* LaunchScreen.storyboard */; };
 		AF6A6AA51C194F9E00D15A93 /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6AA41C194F9E00D15A93 /* TipsterTests.swift */; };
 		AF6A6AB01C194F9E00D15A93 /* TipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6AAF1C194F9E00D15A93 /* TipsterUITests.swift */; };
+		AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */; };
+		AFF4D6871C1ACF5E005AEF44 /* IMG_1147.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +38,6 @@
 		AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF6A6A911C194F9E00D15A93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AF6A6A941C194F9E00D15A93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AF6A6A961C194F9E00D15A93 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AF6A6A991C194F9E00D15A93 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AF6A6A9B1C194F9E00D15A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AF6A6AA01C194F9E00D15A93 /* TipsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A6AA41C194F9E00D15A93 /* TipsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterTests.swift; sourceTree = "<group>"; };
@@ -47,6 +45,8 @@
 		AF6A6AAB1C194F9E00D15A93 /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A6AAF1C194F9E00D15A93 /* TipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterUITests.swift; sourceTree = "<group>"; };
 		AF6A6AB11C194F9E00D15A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Person_icon_BLACK-01.svg.png"; path = "../../../../Downloads/Person_icon_BLACK-01.svg.png"; sourceTree = "<group>"; };
+		AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_1147.jpg; path = "../../../Pictures/Photos Library.photoslibrary/resources/modelresources/70/89/FYTclcqhQJa5+f2mOqgXnQ/IMG_1147.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +77,7 @@
 		AF6A6A831C194F9E00D15A93 = {
 			isa = PBXGroup;
 			children = (
+				AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */,
 				AF6A6A8E1C194F9E00D15A93 /* Tipster */,
 				AF6A6AA31C194F9E00D15A93 /* TipsterTests */,
 				AF6A6AAE1C194F9E00D15A93 /* TipsterUITests */,
@@ -100,8 +101,7 @@
 				AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */,
 				AF6A6A911C194F9E00D15A93 /* ViewController.swift */,
 				AF6A6A931C194F9E00D15A93 /* Main.storyboard */,
-				AF6A6A961C194F9E00D15A93 /* Assets.xcassets */,
-				AF6A6A981C194F9E00D15A93 /* LaunchScreen.storyboard */,
+				AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */,
 				AF6A6A9B1C194F9E00D15A93 /* Info.plist */,
 			);
 			path = Tipster;
@@ -193,6 +193,7 @@
 				TargetAttributes = {
 					AF6A6A8B1C194F9E00D15A93 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 3QE8924CP5;
 					};
 					AF6A6A9F1C194F9E00D15A93 = {
 						CreatedOnToolsVersion = 7.2;
@@ -229,8 +230,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AF6A6A9A1C194F9E00D15A93 /* LaunchScreen.storyboard in Resources */,
-				AF6A6A971C194F9E00D15A93 /* Assets.xcassets in Resources */,
+				AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */,
+				AFF4D6871C1ACF5E005AEF44 /* IMG_1147.jpg in Resources */,
 				AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,14 +300,6 @@
 				AF6A6A941C194F9E00D15A93 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		AF6A6A981C194F9E00D15A93 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				AF6A6A991C194F9E00D15A93 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -396,22 +389,28 @@
 		AF6A6AB51C194F9E00D15A93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tipster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Jimmy.Tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		AF6A6AB61C194F9E00D15A93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tipster/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Jimmy.Tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -482,6 +481,7 @@
 				AF6A6AB61C194F9E00D15A93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF6A6AB71C194F9E00D15A93 /* Build configuration list for PBXNativeTarget "TipsterTests" */ = {
 			isa = XCConfigurationList;
@@ -490,6 +490,7 @@
 				AF6A6AB91C194F9E00D15A93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AF6A6ABA1C194F9E00D15A93 /* Build configuration list for PBXNativeTarget "TipsterUITests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +499,7 @@
 				AF6A6ABC1C194F9E00D15A93 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
