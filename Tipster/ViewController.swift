@@ -8,19 +8,21 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     @IBOutlet weak var tipAmount: UILabel!
     @IBOutlet weak var billAmount: UITextField!
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var taxAmount: UILabel!
+    @IBOutlet weak var billMove: UIView!
     
     @IBOutlet weak var onePerson: UILabel!
     @IBOutlet weak var twoPerson: UILabel!
     @IBOutlet weak var threePerson: UILabel!
     @IBOutlet weak var fourPerson: UILabel!
     @IBOutlet weak var fadeInCalculator: UIView!
-    @IBOutlet weak var billAndLogoView: UIView!
+    var activityIndicator:UIActivityIndicatorView!
+    var image: UIImage!
     let amountChanged = 100.00
     
     
@@ -28,15 +30,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.view.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
-        self.fadeInCalculator.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
-        self.billAndLogoView.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
-        
+        self.fadeInCalculator.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 255, alpha: 1)
+        self.billMove.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
        
         
         tipAmount.text = "$0.00"
         onePerson.text = "$0.00"
-        //moveDown()
-        //fadeOut()
+        
         self.fadeInCalculator.alpha = 0.0
 
         
@@ -51,16 +51,6 @@ class ViewController: UIViewController {
         view.endEditing(true)
     }
     
-    func moveUp(duration: NSTimeInterval = 0.5, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            self.billAndLogoView.frame.origin.y += 200
-            }, completion: completion)  }
-    
-    func moveDown(duration: NSTimeInterval = 0.5, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
-        UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            self.billAndLogoView.frame.origin.y -= 200
-            }, completion: completion)  }
-    
     func fadeIn(duration: NSTimeInterval = 0.5, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
         UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             self.fadeInCalculator.alpha = 1.0
@@ -72,14 +62,21 @@ class ViewController: UIViewController {
             }, completion: completion)
     }
     
-    @IBAction func getBillAmount(sender: AnyObject) {
-        if (billAmount.text != nil) {
-            fadeIn()
-            moveUp()
-        } else if (billAmount.text == nil) {
+    
+    @IBAction func haveBill(sender: UITextField) {
+        if (billAmount.text == "") {
             fadeOut()
-            moveDown()
+            //moveUp()
+        } else if (billAmount.text != "" && billAmount.text?.characters.count > 1) {
+            fadeIn()
+        } else if (billAmount.text != "") {
+            fadeIn()
+            //moveDown()
         }
+    }
+    
+    @IBAction func getBillAmount(sender: AnyObject) {
+     
         var tipPercentages = [0.15, 0.18, 0.2, 0.25]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
@@ -103,6 +100,67 @@ class ViewController: UIViewController {
         threePerson.text = String(format: "$%.2f", three)
         fourPerson.text = String(format: "$%.2f", four)
         
+    }
+    
+    
+    @IBAction func getPictureBill(sender: UIButton) {
+        let imageFromSource = UIImagePickerController()
+        imageFromSource.delegate = self
+        imageFromSource.allowsEditing = false
+        
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+            imageFromSource.sourceType = UIImagePickerControllerSourceType.Camera
+            
+        } else {
+            imageFromSource.sourceType =
+                UIImagePickerControllerSourceType.PhotoLibrary
+        }
+        self.presentViewController(imageFromSource, animated: false, completion: nil)
+        
+        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BillReader") as? BillReader
+        
+        self.navigationController!.pushViewController(secondViewController!, animated: true)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
+        
+        var scaledSize = CGSizeMake(maxDimension, maxDimension)
+        var scaleFactor:CGFloat
+        
+        if image.size.width > image.size.height {
+            scaleFactor = image.size.height / image.size.width
+            scaledSize.width = maxDimension
+            scaledSize.height = scaledSize.width * scaleFactor
+        } else {
+            scaleFactor = image.size.width / image.size.height
+            scaledSize.height = maxDimension
+            scaledSize.width = scaledSize.height * scaleFactor
+        }
+        
+        UIGraphicsBeginImageContext(scaledSize)
+        image.drawInRect(CGRectMake(0, 0, scaledSize.width, scaledSize.height))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return scaledImage
+    }
+    
+    func addActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(frame: view.bounds)
+        activityIndicator.activityIndicatorViewStyle = .WhiteLarge
+        activityIndicator.backgroundColor = UIColor(white: 0, alpha: 0.25)
+        activityIndicator.startAnimating()
+        view.addSubview(activityIndicator)
+    }
+    
+    func removeActivityIndicator() {
+        activityIndicator.removeFromSuperview()
+        activityIndicator = nil
     }
 }
 

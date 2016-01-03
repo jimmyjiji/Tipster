@@ -12,6 +12,7 @@
 		AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A6A931C194F9E00D15A93 /* Main.storyboard */; };
 		AF6A6AA51C194F9E00D15A93 /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6AA41C194F9E00D15A93 /* TipsterTests.swift */; };
 		AF6A6AB01C194F9E00D15A93 /* TipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6AAF1C194F9E00D15A93 /* TipsterUITests.swift */; };
+		AFA1D7451C38D2CE00E8A875 /* BillReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1D7441C38D2CE00E8A875 /* BillReader.swift */; };
 		AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */; };
 		AFF4D6871C1ACF5E005AEF44 /* IMG_1147.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */; };
 /* End PBXBuildFile section */
@@ -45,6 +46,7 @@
 		AF6A6AAB1C194F9E00D15A93 /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A6AAF1C194F9E00D15A93 /* TipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterUITests.swift; sourceTree = "<group>"; };
 		AF6A6AB11C194F9E00D15A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFA1D7441C38D2CE00E8A875 /* BillReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillReader.swift; sourceTree = "<group>"; };
 		AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Person_icon_BLACK-01.svg.png"; path = "../../../../Downloads/Person_icon_BLACK-01.svg.png"; sourceTree = "<group>"; };
 		AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_1147.jpg; path = "../../../Pictures/Photos Library.photoslibrary/resources/modelresources/70/89/FYTclcqhQJa5+f2mOqgXnQ/IMG_1147.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 				AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */,
 				AF6A6A911C194F9E00D15A93 /* ViewController.swift */,
 				AF6A6A931C194F9E00D15A93 /* Main.storyboard */,
+				AFA1D7441C38D2CE00E8A875 /* BillReader.swift */,
 				AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */,
 				AF6A6A9B1C194F9E00D15A93 /* Info.plist */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA1D7451C38D2CE00E8A875 /* BillReader.swift in Sources */,
 				AF6A6A921C194F9E00D15A93 /* ViewController.swift in Sources */,
 				AF6A6A901C194F9E00D15A93 /* AppDelegate.swift in Sources */,
 			);

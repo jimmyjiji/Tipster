@@ -17,17 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWH-xT-4Lz">
+                                <rect key="frame" x="129" y="14" width="121" height="55"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EuY-w6-Udy">
-                                <rect key="frame" x="0.0" y="153" width="366" height="389"/>
+                                <rect key="frame" x="0.0" y="227" width="379" height="533"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8.875%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-tB-3Dn">
-                                        <rect key="frame" x="77" y="20" width="57" height="21"/>
+                                        <rect key="frame" x="81" y="20" width="57" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9fk-Qp-huU">
-                                        <rect key="frame" x="20" y="94" width="326" height="29"/>
+                                        <rect key="frame" x="24" y="94" width="326" height="29"/>
                                         <segments>
                                             <segment title="15%"/>
                                             <segment title="18%"/>
@@ -39,123 +45,119 @@
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pD0-PI-oGZ">
-                                        <rect key="frame" x="177" y="340" width="169" height="26"/>
+                                        <rect key="frame" x="181" y="340" width="169" height="26"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="27"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="sZO-4l-9AS">
-                                        <rect key="frame" x="20" y="285" width="30" height="31"/>
+                                        <rect key="frame" x="24" y="285" width="30" height="31"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Nt3-Vh-4Jh">
-                                        <rect key="frame" x="101" y="338" width="30" height="31"/>
+                                        <rect key="frame" x="105" y="338" width="30" height="31"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lV6-3H-dRL">
-                                        <rect key="frame" x="148" y="284" width="198" height="39"/>
+                                        <rect key="frame" x="152" y="284" width="198" height="39"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="32"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJ8-qa-5lO">
-                                        <rect key="frame" x="58" y="152" width="288" height="62"/>
+                                        <rect key="frame" x="62" y="152" width="288" height="62"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="45"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="09p-g7-iJ0">
-                                        <rect key="frame" x="62" y="229" width="30" height="31"/>
+                                        <rect key="frame" x="66" y="229" width="30" height="31"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJX-ka-rYE">
-                                        <rect key="frame" x="100" y="222" width="246" height="49"/>
+                                        <rect key="frame" x="104" y="222" width="246" height="49"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="38"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-f4-xgB">
-                                        <rect key="frame" x="20" y="64" width="50" height="21"/>
+                                        <rect key="frame" x="24" y="64" width="50" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w1O-Nr-4bk">
-                                        <rect key="frame" x="278" y="20" width="68" height="21"/>
+                                        <rect key="frame" x="282" y="20" width="68" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$0.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-RK-ROR">
-                                        <rect key="frame" x="208" y="64" width="138" height="21"/>
+                                        <rect key="frame" x="212" y="64" width="138" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="qKa-2v-LwO">
-                                        <rect key="frame" x="62" y="338" width="30" height="31"/>
+                                        <rect key="frame" x="66" y="338" width="30" height="31"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tax" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ktk-53-EkB">
-                                        <rect key="frame" x="20" y="20" width="35" height="21"/>
+                                        <rect key="frame" x="24" y="20" width="35" height="21"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="CfQ-tn-4d7">
-                                        <rect key="frame" x="62" y="286" width="30" height="31"/>
+                                        <rect key="frame" x="66" y="286" width="30" height="31"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rcw-je-chc">
-                                        <rect key="frame" x="20" y="167" width="30" height="31"/>
+                                        <rect key="frame" x="24" y="167" width="30" height="31"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="gP4-7d-ovU">
-                                        <rect key="frame" x="139" y="338" width="30" height="31"/>
+                                        <rect key="frame" x="143" y="338" width="30" height="31"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="gzA-wK-lMq">
-                                        <rect key="frame" x="20" y="229" width="30" height="31"/>
+                                        <rect key="frame" x="24" y="229" width="30" height="31"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="U9T-Ab-gq7">
-                                        <rect key="frame" x="20" y="338" width="30" height="31"/>
+                                        <rect key="frame" x="24" y="338" width="30" height="31"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NhX-gI-HmV">
-                                        <rect key="frame" x="77" y="122" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="81" y="122" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="VH3-Ac-xjB">
-                                        <rect key="frame" x="100" y="285" width="30" height="31"/>
+                                        <rect key="frame" x="104" y="285" width="30" height="31"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uid-Xi-zkq">
-                                <rect key="frame" x="321" y="168" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fvl-Tv-Qex">
-                                <rect key="frame" x="0.0" y="0.0" width="366" height="172"/>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O87-Qy-WFO">
+                                <rect key="frame" x="0.0" y="60" width="379" height="139"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-0r-Rgr">
+                                        <rect key="frame" x="20" y="25" width="51" height="74.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <textField clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Bill " textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XIb-G7-uB5">
-                                        <rect key="frame" x="243" y="66" width="103" height="86"/>
+                                        <rect key="frame" x="243" y="20" width="103" height="86"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="35"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                                         <connections>
                                             <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="5UP-tH-Hkb"/>
                                             <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="editingChanged" id="XjH-x5-mXc"/>
+                                            <action selector="haveBill:" destination="BYZ-38-t0r" eventType="editingChanged" id="kbM-ch-YUg"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fet-0r-Rgr">
-                                        <rect key="frame" x="20" y="71" width="51" height="74.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="35"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tipster" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xWH-xT-4Lz">
-                                        <rect key="frame" x="123" y="8" width="121" height="55"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Italic" family="Avenir Next" pointSize="35"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeR-1Z-TWx">
+                                        <rect key="frame" x="105" y="109" width="169" height="30"/>
+                                        <state key="normal" title="Take a picture of the bill!"/>
+                                        <connections>
+                                            <action selector="getPictureBill:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CgX-rW-VvF"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -169,7 +171,7 @@
                     </view>
                     <connections>
                         <outlet property="billAmount" destination="XIb-G7-uB5" id="vGc-T8-WyZ"/>
-                        <outlet property="billAndLogoView" destination="Fvl-Tv-Qex" id="6Xh-fH-wNq"/>
+                        <outlet property="billMove" destination="O87-Qy-WFO" id="vvz-UK-tfC"/>
                         <outlet property="fadeInCalculator" destination="EuY-w6-Udy" id="flF-zr-LgA"/>
                         <outlet property="fourPerson" destination="pD0-PI-oGZ" id="DGY-bK-Wtl"/>
                         <outlet property="onePerson" destination="GJ8-qa-5lO" id="Hh9-7J-cOO"/>
@@ -187,7 +189,39 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="785" y="211"/>
+            <point key="canvasLocation" x="564" y="255"/>
+        </scene>
+        <!--Bill Reader-->
+        <scene sceneID="LjG-qD-6u4">
+            <objects>
+                <viewController id="dHx-1k-iqW" customClass="BillReader" customModule="Tipster" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4NU-9s-rSV"/>
+                        <viewControllerLayoutGuide type="bottom" id="WL2-fL-bZU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="5I2-0e-pmt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-10-9Cw">
+                                <rect key="frame" x="29" y="67" width="263" height="302"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crop This Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-1f-Vpy">
+                                <rect key="frame" x="87" y="38" width="124" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="billImage" destination="Kco-10-9Cw" id="g9c-2S-50e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2Q-lu-geM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1188" y="255"/>
         </scene>
     </scenes>
     <resources>
