@@ -16,4 +16,4 @@ The algorithm however needs work as of 1/3/2016 but for the most part it works m
 
 The framework used for optical character recognition (OCR) is Tesseract. 
 
-![alt tag](file:///Users/JimmyJi/Desktop/IMG_1189.jpg)
+![Sample Image](https://github.com/jimmyjiji/Tipster/blob/master/Sample%20Tipster.jpg)
