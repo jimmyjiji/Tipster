@@ -12,9 +12,11 @@
 		AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A6A931C194F9E00D15A93 /* Main.storyboard */; };
 		AF6A6AA51C194F9E00D15A93 /* TipsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6AA41C194F9E00D15A93 /* TipsterTests.swift */; };
 		AF6A6AB01C194F9E00D15A93 /* TipsterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6AAF1C194F9E00D15A93 /* TipsterUITests.swift */; };
-		AFA1D7451C38D2CE00E8A875 /* BillReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA1D7441C38D2CE00E8A875 /* BillReader.swift */; };
+		AFCBFB251C39FD7700AD7CE1 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = AFCBFB231C39FD7700AD7CE1 /* tessdata */; };
+		AFCBFB261C39FD7700AD7CE1 /* TesseractOCR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCBFB241C39FD7700AD7CE1 /* TesseractOCR.framework */; };
+		AFCBFB2A1C39FE8E00AD7CE1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCBFB291C39FE8E00AD7CE1 /* libstdc++.tbd */; };
+		AFCBFB2C1C39FEA300AD7CE1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */; };
 		AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */; };
-		AFF4D6871C1ACF5E005AEF44 /* IMG_1147.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,9 +48,12 @@
 		AF6A6AAB1C194F9E00D15A93 /* TipsterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TipsterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A6AAF1C194F9E00D15A93 /* TipsterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsterUITests.swift; sourceTree = "<group>"; };
 		AF6A6AB11C194F9E00D15A93 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AFA1D7441C38D2CE00E8A875 /* BillReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillReader.swift; sourceTree = "<group>"; };
+		AFCBFB231C39FD7700AD7CE1 /* tessdata */ = {isa = PBXFileReference; lastKnownFileType = folder; path = tessdata; sourceTree = "<group>"; };
+		AFCBFB241C39FD7700AD7CE1 /* TesseractOCR.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = TesseractOCR.framework; sourceTree = "<group>"; };
+		AFCBFB291C39FE8E00AD7CE1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
+		AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
+		AFCBFB2D1C39FF4400AD7CE1 /* Tipster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tipster-Bridging-Header.h"; sourceTree = "<group>"; };
 		AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Person_icon_BLACK-01.svg.png"; path = "../../../../Downloads/Person_icon_BLACK-01.svg.png"; sourceTree = "<group>"; };
-		AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = IMG_1147.jpg; path = "../../../Pictures/Photos Library.photoslibrary/resources/modelresources/70/89/FYTclcqhQJa5+f2mOqgXnQ/IMG_1147.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFCBFB2C1C39FEA300AD7CE1 /* CoreImage.framework in Frameworks */,
+				AFCBFB2A1C39FE8E00AD7CE1 /* libstdc++.tbd in Frameworks */,
+				AFCBFB261C39FD7700AD7CE1 /* TesseractOCR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,11 +87,13 @@
 		AF6A6A831C194F9E00D15A93 = {
 			isa = PBXGroup;
 			children = (
-				AFF4D6861C1ACF5E005AEF44 /* IMG_1147.jpg */,
+				AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */,
+				AFCBFB291C39FE8E00AD7CE1 /* libstdc++.tbd */,
 				AF6A6A8E1C194F9E00D15A93 /* Tipster */,
 				AF6A6AA31C194F9E00D15A93 /* TipsterTests */,
 				AF6A6AAE1C194F9E00D15A93 /* TipsterUITests */,
 				AF6A6A8D1C194F9E00D15A93 /* Products */,
+				AFCBFB2D1C39FF4400AD7CE1 /* Tipster-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,10 +110,11 @@
 		AF6A6A8E1C194F9E00D15A93 /* Tipster */ = {
 			isa = PBXGroup;
 			children = (
+				AFCBFB231C39FD7700AD7CE1 /* tessdata */,
+				AFCBFB241C39FD7700AD7CE1 /* TesseractOCR.framework */,
 				AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */,
 				AF6A6A911C194F9E00D15A93 /* ViewController.swift */,
 				AF6A6A931C194F9E00D15A93 /* Main.storyboard */,
-				AFA1D7441C38D2CE00E8A875 /* BillReader.swift */,
 				AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */,
 				AF6A6A9B1C194F9E00D15A93 /* Info.plist */,
 			);
@@ -234,7 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */,
-				AFF4D6871C1ACF5E005AEF44 /* IMG_1147.jpg in Resources */,
+				AFCBFB251C39FD7700AD7CE1 /* tessdata in Resources */,
 				AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,7 +271,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AFA1D7451C38D2CE00E8A875 /* BillReader.swift in Sources */,
 				AF6A6A921C194F9E00D15A93 /* ViewController.swift in Sources */,
 				AF6A6A901C194F9E00D15A93 /* AppDelegate.swift in Sources */,
 			);
@@ -393,14 +403,23 @@
 		AF6A6AB51C194F9E00D15A93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tipster",
+				);
 				INFOPLIST_FILE = Tipster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = Jimmy.Tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tipster-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -408,14 +427,22 @@
 		AF6A6AB61C194F9E00D15A93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Tipster",
+				);
 				INFOPLIST_FILE = Tipster/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = Jimmy.Tipster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tipster-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

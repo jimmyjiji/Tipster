@@ -146,8 +146,9 @@
                                         <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="35"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="decimalPad"/>
                                         <connections>
-                                            <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="5UP-tH-Hkb"/>
                                             <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="editingChanged" id="XjH-x5-mXc"/>
+                                            <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="valueChanged" id="kUy-fc-lxV"/>
+                                            <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="qnb-Oa-UIJ"/>
                                             <action selector="haveBill:" destination="BYZ-38-t0r" eventType="editingChanged" id="kbM-ch-YUg"/>
                                         </connections>
                                     </textField>
@@ -190,38 +191,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="564" y="255"/>
-        </scene>
-        <!--Bill Reader-->
-        <scene sceneID="LjG-qD-6u4">
-            <objects>
-                <viewController id="dHx-1k-iqW" customClass="BillReader" customModule="Tipster" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4NU-9s-rSV"/>
-                        <viewControllerLayoutGuide type="bottom" id="WL2-fL-bZU"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="5I2-0e-pmt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-10-9Cw">
-                                <rect key="frame" x="29" y="67" width="263" height="302"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Crop This Photo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hrc-1f-Vpy">
-                                <rect key="frame" x="87" y="38" width="124" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <connections>
-                        <outlet property="billImage" destination="Kco-10-9Cw" id="g9c-2S-50e"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K2Q-lu-geM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1188" y="255"/>
         </scene>
     </scenes>
     <resources>

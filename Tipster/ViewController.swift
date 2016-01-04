@@ -117,15 +117,90 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         self.presentViewController(imageFromSource, animated: false, completion: nil)
         
-        let secondViewController = self.storyboard?.instantiateViewControllerWithIdentifier("BillReader") as? BillReader
+        }
+    
+    func performImageRecognition(image: UIImage) {
+        let tesseract = G8Tesseract()
+        tesseract.language = "eng+fra"
         
-        self.navigationController!.pushViewController(secondViewController!, animated: true)
+        tesseract.engineMode = .TesseractCubeCombined
+        
+        tesseract.pageSegmentationMode = .Auto
+        
+        tesseract.maximumRecognitionTime = 60.0
+        tesseract.image = image.g8_blackAndWhite()
+        tesseract.recognize()
+        
+     
+        let text = tesseract.recognizedText
+        if (text != nil) {
+            print(text)
+            print("##################################")
+            let test = parseText(text)
+            print(test)
+            billAmount.text = test
+            fadeIn()
+        } else {
+            print("Empty Text")
+        }
+        removeActivityIndicator()
+    }
+    
+    func parseText(text: String) -> String {
+       
+                let containsTotal = text.lowercaseString.containsString("total")
+                if containsTotal {
+                    let startIndex = text.lowercaseString.rangeOfString("total")?.endIndex
+                    let newString = text.substringFromIndex(startIndex!)
+                    let endIndex = newString.rangeOfString("\n")?.endIndex
+                    if endIndex != nil {
+                        let newerString = newString.substringToIndex(endIndex!)
+                        var finalString = newerString.stringByReplacingOccurrencesOfString("$", withString: "")
+                        finalString = finalString.stringByReplacingOccurrencesOfString(";", withString: "")
+                        finalString = finalString.stringByReplacingOccurrencesOfString(",", withString: "")
+                        finalString = finalString.stringByReplacingOccurrencesOfString(":", withString: "")
+                        finalString = finalString.stringByReplacingOccurrencesOfString("'", withString: "")
+                        finalString = finalString.stringByReplacingOccurrencesOfString("/^[A-Za-z]+$/", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
+                        finalString = finalString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
+                        
+                        if finalString != "" {
+                            return finalString
+                        } else {
+                            let alertController = UIAlertController(title: "Error", message:
+                                "Found a total, but no price! Take a better picture fool", preferredStyle: UIAlertControllerStyle.Alert)
+                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                            
+                            self.presentViewController(alertController, animated: true, completion: nil)
+                            return ""
+                        }
+                    }
+                    let alertController = UIAlertController(title: "Error", message:
+                        "Couldn't find new line char. Take a better picture fool", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                    return ""
+
+            } else {
+                    let alertController = UIAlertController(title: "Error", message:
+                        "Couldn't find total. Take a better picture fool", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+                    
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                return ""
+        }
+        
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        dismissViewControllerAnimated(true, completion: nil)
-    }
+        let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+        image = scaleImage(selectedPhoto, maxDimension: 640)
+        
+        addActivityIndicator()
+        
+        dismissViewControllerAnimated(true, completion: {
+            self.performImageRecognition(self.image)
+        })    }
     
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
         
