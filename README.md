@@ -16,4 +16,6 @@ The algorithm however needs work as of 1/3/2016 but for the most part it works *
 
 The framework used for optical character recognition (OCR) is **Tesseract**. 
 
+*Image Scanning works significantly better once gaussian filter and binarization filter is set on image*
+
 ![Sample Image](https://github.com/jimmyjiji/Tipster/blob/master/Sample%20Tipster.jpg)
