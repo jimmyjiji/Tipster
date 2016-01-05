@@ -62,14 +62,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     
     @IBAction func haveBill(sender: UITextField) {
-        if (billAmount.text == "") {
+        if billAmount.text == "" {
             fadeOut()
-            //moveUp()
-        } else if (billAmount.text != "" && billAmount.text?.characters.count > 1) {
+        } else if billAmount.text != "" && billAmount.text?.characters.count > 1 {
             fadeIn()
-        } else if (billAmount.text != "") {
+        } else if billAmount.text != "" {
             fadeIn()
-            //moveDown()
         }
     }
     
@@ -81,9 +79,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         let billDouble = NSString(string: billAmount.text!).doubleValue
         let tax = 0.08875 * billDouble
-            
+        
         taxAmount.text = String(format: "$%.2f", tax)
-
+        
         let tip = billDouble * tipPercentage
         let total = tip + billDouble + tax
         let one = total
@@ -136,6 +134,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             print(test)
             billAmount.text = ""
             billAmount.text = billAmount.text! + test
+            getBillAmount(self)
             fadeIn()
         } else {
             print("Empty Text")
@@ -190,8 +189,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
         self.image = scaleImage(selectedPhoto, maxDimension: 640)
         
-        enhanceImage()
         addActivityIndicator()
+        enhanceImage()
         
         dismissViewControllerAnimated(true, completion: {
             self.performImageRecognition(self.image!)
