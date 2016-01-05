@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyImagy
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
@@ -22,8 +23,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var fourPerson: UILabel!
     @IBOutlet weak var fadeInCalculator: UIView!
     var activityIndicator:UIActivityIndicatorView!
-    var image: UIImage!
-    let amountChanged = 100.00
+    var image: UIImage?
     
     
     override func viewDidLoad() {
@@ -32,8 +32,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.view.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
         self.fadeInCalculator.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 255, alpha: 1)
         self.billMove.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
-       
-        
         tipAmount.text = "$0.00"
         onePerson.text = "$0.00"
         
@@ -122,13 +120,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func performImageRecognition(image: UIImage) {
         let tesseract = G8Tesseract()
         tesseract.language = "eng+fra"
-        
         tesseract.engineMode = .TesseractCubeCombined
-        
         tesseract.pageSegmentationMode = .Auto
         
         tesseract.maximumRecognitionTime = 60.0
-        tesseract.image = image.g8_blackAndWhite()
+        tesseract.image = image.g8_grayScale()
         tesseract.recognize()
         
      
@@ -138,7 +134,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             print("##################################")
             let test = parseText(text)
             print(test)
-            billAmount.text = test
+            billAmount.text = ""
+            billAmount.text = billAmount.text! + test
             fadeIn()
         } else {
             print("Empty Text")
@@ -157,50 +154,69 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                         let newerString = newString.substringToIndex(endIndex!)
                         var finalString = newerString.stringByReplacingOccurrencesOfString("$", withString: "")
                         finalString = finalString.stringByReplacingOccurrencesOfString(";", withString: "")
-                        finalString = finalString.stringByReplacingOccurrencesOfString(",", withString: "")
+                        finalString = finalString.stringByReplacingOccurrencesOfString(",", withString: ".")
                         finalString = finalString.stringByReplacingOccurrencesOfString(":", withString: "")
                         finalString = finalString.stringByReplacingOccurrencesOfString("'", withString: "")
                         finalString = finalString.stringByReplacingOccurrencesOfString("/^[A-Za-z]+$/", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
-                        finalString = finalString.stringByTrimmingCharactersInSet(NSCharacterSet.whitespaceCharacterSet())
-                        
+                        finalString = finalString.stringByReplacingOccurrencesOfString(" ", withString: "")
+
                         if finalString != "" {
                             return finalString
-                        } else {
-                            let alertController = UIAlertController(title: "Error", message:
-                                "Found a total, but no price! Take a better picture fool", preferredStyle: UIAlertControllerStyle.Alert)
-                            alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                            
-                            self.presentViewController(alertController, animated: true, completion: nil)
+                        } else if finalString == " " || finalString == "" {
+                            displayError("Found an total... but no price!")
                             return ""
                         }
                     }
-                    let alertController = UIAlertController(title: "Error", message:
-                        "Couldn't find new line char. Take a better picture fool", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
+                    displayError("Couldnt find new line char!")
                     return ""
 
             } else {
-                    let alertController = UIAlertController(title: "Error", message:
-                        "Couldn't find total. Take a better picture fool", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
-                    
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                return ""
+                    displayError("Couldn't find a total!")
+                    return ""
         }
         
     }
     
+    func displayError(errorMessage: String) {
+        let alertController = UIAlertController(title: "Error", message:
+            errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+
+    }
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
-        image = scaleImage(selectedPhoto, maxDimension: 640)
+        self.image = scaleImage(selectedPhoto, maxDimension: 640)
         
+        enhanceImage()
         addActivityIndicator()
         
         dismissViewControllerAnimated(true, completion: {
-            self.performImageRecognition(self.image)
-        })    }
+            self.performImageRecognition(self.image!)
+        })
+    }
+    
+    func enhanceImage() {
+        let easyImage = Image(UIImage: self.image!)!
+        let weights = [
+            1,  4,  6,  4, 1,
+            4, 16, 24, 16, 4,
+            6, 24, 36, 24, 6,
+            4, 16, 24, 16, 4,
+            1,  4,  6,  4, 1,
+        ]
+        let gaussianFilter = easyImage.map { x, y, pixel in
+            easyImage[(y - 2)...(y + 2)][(x - 2)...(x + 2)].map {
+                Pixel.weightedMean(zip(weights, $0))
+                } ?? pixel
+        }
+        self.image = gaussianFilter.UIImage
+
+        let binarize = easyImage.map { $0.gray < 128 ? Pixel.black : Pixel.white }
+        self.image = binarize.UIImage
+    }
     
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
         

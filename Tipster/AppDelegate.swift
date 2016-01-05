@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyImagy
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

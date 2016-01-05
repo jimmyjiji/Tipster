@@ -17,6 +17,9 @@
 		AFCBFB2A1C39FE8E00AD7CE1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCBFB291C39FE8E00AD7CE1 /* libstdc++.tbd */; };
 		AFCBFB2C1C39FEA300AD7CE1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */; };
 		AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */; };
+		AFFF1CF61C3B54AB00DB5088 /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */; };
+		AFFF1CF71C3B562C00DB5088 /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */; };
+		AFFF1CF81C3B562C00DB5088 /* EasyImagy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,7 +37,49 @@
 			remoteGlobalIDString = AF6A6A8B1C194F9E00D15A93;
 			remoteInfo = Tipster;
 		};
+		AFFF1CF01C3B549700DB5088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D65FF0711AFB66C7006CC985;
+			remoteInfo = EasyImagy;
+		};
+		AFFF1CF21C3B549700DB5088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D65FF07C1AFB66C7006CC985;
+			remoteInfo = EasyImagyTests;
+		};
+		AFFF1CF41C3B549700DB5088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D6C2EDF81B031A0900E2B876;
+			remoteInfo = EasyImagySample;
+		};
+		AFFF1CF91C3B562C00DB5088 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D65FF0701AFB66C7006CC985;
+			remoteInfo = EasyImagy;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AFFF1CFB1C3B562C00DB5088 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AFFF1CF81C3B562C00DB5088 /* EasyImagy.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		AF6A6A8C1C194F9E00D15A93 /* Tipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,6 +99,7 @@
 		AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		AFCBFB2D1C39FF4400AD7CE1 /* Tipster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tipster-Bridging-Header.h"; sourceTree = "<group>"; };
 		AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Person_icon_BLACK-01.svg.png"; path = "../../../../Downloads/Person_icon_BLACK-01.svg.png"; sourceTree = "<group>"; };
+		AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = EasyImagy.xcodeproj; path = "../../../Downloads/EasyImagy-master/EasyImagy.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +107,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFFF1CF61C3B54AB00DB5088 /* EasyImagy.framework in Frameworks */,
+				AFFF1CF71C3B562C00DB5088 /* EasyImagy.framework in Frameworks */,
 				AFCBFB2C1C39FEA300AD7CE1 /* CoreImage.framework in Frameworks */,
 				AFCBFB2A1C39FE8E00AD7CE1 /* libstdc++.tbd in Frameworks */,
 				AFCBFB261C39FD7700AD7CE1 /* TesseractOCR.framework in Frameworks */,
@@ -89,6 +137,7 @@
 			children = (
 				AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */,
 				AFCBFB291C39FE8E00AD7CE1 /* libstdc++.tbd */,
+				AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */,
 				AF6A6A8E1C194F9E00D15A93 /* Tipster */,
 				AF6A6AA31C194F9E00D15A93 /* TipsterTests */,
 				AF6A6AAE1C194F9E00D15A93 /* TipsterUITests */,
@@ -139,6 +188,16 @@
 			path = TipsterUITests;
 			sourceTree = "<group>";
 		};
+		AFFF1CEB1C3B549700DB5088 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */,
+				AFFF1CF31C3B549700DB5088 /* EasyImagyTests.xctest */,
+				AFFF1CF51C3B549700DB5088 /* EasyImagySample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -149,10 +208,12 @@
 				AF6A6A881C194F9E00D15A93 /* Sources */,
 				AF6A6A891C194F9E00D15A93 /* Frameworks */,
 				AF6A6A8A1C194F9E00D15A93 /* Resources */,
+				AFFF1CFB1C3B562C00DB5088 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				AFFF1CFA1C3B562C00DB5088 /* PBXTargetDependency */,
 			);
 			name = Tipster;
 			productName = Tipster;
@@ -230,6 +291,12 @@
 			mainGroup = AF6A6A831C194F9E00D15A93;
 			productRefGroup = AF6A6A8D1C194F9E00D15A93 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = AFFF1CEB1C3B549700DB5088 /* Products */;
+					ProjectRef = AFFF1CEA1C3B549700DB5088 /* EasyImagy.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				AF6A6A8B1C194F9E00D15A93 /* Tipster */,
@@ -238,6 +305,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = EasyImagy.framework;
+			remoteRef = AFFF1CF01C3B549700DB5088 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AFFF1CF31C3B549700DB5088 /* EasyImagyTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = EasyImagyTests.xctest;
+			remoteRef = AFFF1CF21C3B549700DB5088 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		AFFF1CF51C3B549700DB5088 /* EasyImagySample.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = EasyImagySample.app;
+			remoteRef = AFFF1CF41C3B549700DB5088 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		AF6A6A8A1C194F9E00D15A93 /* Resources */ = {
@@ -304,6 +395,11 @@
 			isa = PBXTargetDependency;
 			target = AF6A6A8B1C194F9E00D15A93 /* Tipster */;
 			targetProxy = AF6A6AAC1C194F9E00D15A93 /* PBXContainerItemProxy */;
+		};
+		AFFF1CFA1C3B562C00DB5088 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = EasyImagy;
+			targetProxy = AFFF1CF91C3B562C00DB5088 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -406,6 +502,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -430,6 +527,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

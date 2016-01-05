@@ -154,7 +154,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeR-1Z-TWx">
                                         <rect key="frame" x="105" y="109" width="169" height="30"/>
-                                        <state key="normal" title="Take a picture of the bill!"/>
+                                        <state key="normal" title="Take a picture of the Bill!"/>
                                         <connections>
                                             <action selector="getPictureBill:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CgX-rW-VvF"/>
                                         </connections>
@@ -162,6 +162,10 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asq-fd-BPg">
+                                <rect key="frame" x="292" y="22" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
@@ -170,6 +174,10 @@
                             <outletCollection property="gestureRecognizers" destination="QXz-JO-kdl" appends="YES" id="nkU-7T-d5y"/>
                         </connections>
                     </view>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="kyD-M0-M0i"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="billAmount" destination="XIb-G7-uB5" id="vGc-T8-WyZ"/>
                         <outlet property="billMove" destination="O87-Qy-WFO" id="vvz-UK-tfC"/>
