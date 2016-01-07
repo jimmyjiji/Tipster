@@ -112,8 +112,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 UIImagePickerControllerSourceType.PhotoLibrary
         }
         self.presentViewController(imageFromSource, animated: false, completion: nil)
-        
-        }
+    }
     
     func performImageRecognition(image: UIImage) {
         let tesseract = G8Tesseract()
@@ -127,38 +126,37 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
      
         let text = tesseract.recognizedText
-        if (text != nil) {
+        if text != nil {
             print(text)
             print("##################################")
-            let test = parseText(text)
-            print(test)
+            let result = parseText(text)
+            print(result)
             billAmount.text = ""
-            billAmount.text = billAmount.text! + test
-            getBillAmount(self)
-            fadeIn()
+            billAmount.text = billAmount.text?.stringByAppendingString(result)
+            
+            if result != "" {
+                getBillAmount(self)
+                fadeIn()
+            }
         } else {
-            print("Empty Text")
+            displayError("Empty Text")
         }
         removeActivityIndicator()
     }
     
     func parseText(text: String) -> String {
-       
-                let containsTotal = text.lowercaseString.containsString("total")
+                let containsTotal = text.lowercaseString.containsString("otal")
                 if containsTotal {
-                    let startIndex = text.lowercaseString.rangeOfString("total")?.endIndex
+                    let startIndex = text.lowercaseString.rangeOfString("otal")?.endIndex
                     let newString = text.substringFromIndex(startIndex!)
                     let endIndex = newString.rangeOfString("\n")?.endIndex
                     if endIndex != nil {
                         let newerString = newString.substringToIndex(endIndex!)
                         var finalString = newerString.stringByReplacingOccurrencesOfString("$", withString: "")
-                        finalString = finalString.stringByReplacingOccurrencesOfString(";", withString: "")
                         finalString = finalString.stringByReplacingOccurrencesOfString(",", withString: ".")
-                        finalString = finalString.stringByReplacingOccurrencesOfString(":", withString: "")
-                        finalString = finalString.stringByReplacingOccurrencesOfString("'", withString: "")
-                        finalString = finalString.stringByReplacingOccurrencesOfString("/^[A-Za-z]+$/", withString: "", options: NSStringCompareOptions.RegularExpressionSearch, range: nil)
                         finalString = finalString.stringByReplacingOccurrencesOfString(" ", withString: "")
-
+                        let matches = matchesForRegexInText("\\d+\\.\\d{2}", text: finalString)
+                        finalString = matches.joinWithSeparator("")
                         if finalString != "" {
                             return finalString
                         } else if finalString == " " || finalString == "" {
@@ -176,6 +174,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
+    func matchesForRegexInText(regex: String!, text: String!) -> [String] {
+        
+        do {
+            let regex = try NSRegularExpression(pattern: regex, options: [])
+            let nsString = text as NSString
+            let results = regex.matchesInString(text,
+                options: [], range: NSMakeRange(0, nsString.length))
+            return results.map { nsString.substringWithRange($0.range)}
+        } catch let error as NSError {
+            print("invalid regex: \(error.localizedDescription)")
+            return []
+        }
+    }
+
+    
     func displayError(errorMessage: String) {
         let alertController = UIAlertController(title: "Error", message:
             errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
@@ -186,15 +199,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
-        self.image = scaleImage(selectedPhoto, maxDimension: 640)
-        
-        addActivityIndicator()
-        enhanceImage()
-        
+        self.addActivityIndicator()
         dismissViewControllerAnimated(true, completion: {
+            let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+            self.image = self.scaleImage(selectedPhoto, maxDimension: 640)
+            self.enhanceImage()
             self.performImageRecognition(self.image!)
         })
+       
     }
     
     func enhanceImage() {
