@@ -12,10 +12,11 @@ ways to evenly split the bill up to 4 people.
 
 The app now has receipt scanning functionality. In case for whatever reason you are too lazy to type in the bill, you can simply take a picture of the receipt and it will scan the photo for the word "total" and input the result into the bill statement. 
 
-The algorithm however needs work as of 1/3/2016 but for the most part it works *maybe* 50%. 
+The framework used for optical character recognition (OCR) is **Tesseract**.
+The framework used for binarization is **EasyImagy** by koher
 
-The framework used for optical character recognition (OCR) is **Tesseract**. 
+*Image scanning works significantly better once gaussian filter and binarization filter is set on image*
 
-*Image Scanning works significantly better once gaussian filter and binarization filter is set on Image*
+As of 1/8/2016, it takes about 6~ seconds to read an image.
 
 ![Sample Image](https://github.com/jimmyjiji/Tipster/blob/master/Sample%20Tipster.jpg)
