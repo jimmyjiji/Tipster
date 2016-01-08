@@ -132,6 +132,20 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     
     /**
+     Allows uploading of receipts from photo library
+    */
+    @IBAction func uploadPicture(sender: AnyObject) {
+        let imageFromSource = UIImagePickerController()
+        imageFromSource.delegate = self
+        imageFromSource.allowsEditing = false
+        
+        
+        imageFromSource.sourceType =
+                UIImagePickerControllerSourceType.PhotoLibrary
+        
+        self.presentViewController(imageFromSource, animated: false, completion: nil)
+    }
+    /**
      Uses the Tesseract framework to perform the Image recognition
      image: The image it performs the image recognition on
      */
