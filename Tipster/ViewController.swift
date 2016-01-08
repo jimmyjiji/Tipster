@@ -44,23 +44,34 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    /**
+     Closes the keyboard on tap
+    */
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
     }
     
+    /**
+     Fades in the calculator portion of Tipster
+    */
     func fadeIn(duration: NSTimeInterval = 0.5, delay: NSTimeInterval = 0.0, completion: ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
         UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             self.fadeInCalculator.alpha = 1.0
             }, completion: completion)  }
-    
+    /**
+     Fades out the calculator portion of Tipster
+     */
     func fadeOut(duration: NSTimeInterval = 0.5, delay: NSTimeInterval = 0.0, completion: (Bool) -> Void = {(finished: Bool) -> Void in}) {
         UIView.animateWithDuration(duration, delay: delay, options: UIViewAnimationOptions.CurveEaseIn, animations: {
             self.fadeInCalculator.alpha = 0.0
             }, completion: completion)
     }
     
-    
+    /**
+     Checks if the Bill text field has a value. 
+     If the text field has a value, the calculator will fade in 
+     Otherwise, it will stay faded out
+     */
     @IBAction func haveBill(sender: UITextField) {
         if billAmount.text == "" {
             fadeOut()
@@ -71,6 +82,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
+    /**
+     Obtains the total bill by adding tax and tip from the bill text field
+     */
     @IBAction func getBillAmount(sender: AnyObject) {
      
         var tipPercentages = [0.15, 0.18, 0.2, 0.25]
@@ -98,7 +112,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
-    
+    /**
+     When "Take a picture of the Bill!" button is pressed, this method opens up the camera if there is a 
+     camera source available. Otherwise, it will simply go to your photo library.
+     */
     @IBAction func getPictureBill(sender: UIButton) {
         let imageFromSource = UIImagePickerController()
         imageFromSource.delegate = self
@@ -114,12 +131,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.presentViewController(imageFromSource, animated: false, completion: nil)
     }
     
+    /**
+     Uses the Tesseract framework to perform the Image recognition
+     image: The image it performs the image recognition on
+     */
     func performImageRecognition(image: UIImage) {
         let tesseract = G8Tesseract()
-        tesseract.language = "eng+fra"
+        tesseract.language = "eng"
         tesseract.engineMode = .TesseractCubeCombined
         tesseract.pageSegmentationMode = .Auto
-        
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_grayScale()
         tesseract.recognize()
@@ -144,6 +164,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         removeActivityIndicator()
     }
     
+    /**
+     This method parses the text produced by the Tesseract framework.
+     The method looks for the substring "otal" in the text and returns a double value in string
+     text: String to be parsed
+     return: the price to be put into bill amount
+    */
     func parseText(text: String) -> String {
                 let containsTotal = text.lowercaseString.containsString("otal")
                 if containsTotal {
@@ -174,8 +200,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
     }
     
+    /**
+     Helper function that looks for a regex value in a string 
+     regex: the String representation of a regular expression
+     text: the String that the regex is going to be applied on
+     return: String array of the string parsed by regex
+    */
+    
     func matchesForRegexInText(regex: String!, text: String!) -> [String] {
-        
         do {
             let regex = try NSRegularExpression(pattern: regex, options: [])
             let nsString = text as NSString
@@ -188,7 +220,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
 
-    
+    /**
+     Displays an Alert view with an error message 
+     errorMessage: the error message to be displayed
+     */
     func displayError(errorMessage: String) {
         let alertController = UIAlertController(title: "Error", message:
             errorMessage, preferredStyle: UIAlertControllerStyle.Alert)
@@ -198,6 +233,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     }
     
+    /**
+     Performs what happens after the picture is taken
+     */
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         self.addActivityIndicator()
         dismissViewControllerAnimated(true, completion: {
@@ -208,7 +246,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         })
        
     }
-    
+    /**
+     Uses a Gaussian Filter and binarization to make the image clearer
+     */
     func enhanceImage() {
         let easyImage = Image(UIImage: self.image!)!
         let weights = [
@@ -229,8 +269,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.image = binarize.UIImage
     }
     
+    /*
+     Scales the image taken to be more user friendly with Tesseract
+     image: Image to be scaled 
+     maxDimension: The max dimension of the image 
+     return: Returns an UIImage
+     */
+    
     func scaleImage(image: UIImage, maxDimension: CGFloat) -> UIImage {
-        
         var scaledSize = CGSizeMake(maxDimension, maxDimension)
         var scaleFactor:CGFloat
         
@@ -252,6 +298,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         return scaledImage
     }
     
+    /**
+     Adds a subview to demonstrate activity
+     */
     func addActivityIndicator() {
         activityIndicator = UIActivityIndicatorView(frame: view.bounds)
         activityIndicator.activityIndicatorViewStyle = .WhiteLarge
@@ -260,6 +309,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         view.addSubview(activityIndicator)
     }
     
+    /**
+     Removes the subview that demonstrates activity and destroys it
+     */
     func removeActivityIndicator() {
         activityIndicator.removeFromSuperview()
         activityIndicator = nil
