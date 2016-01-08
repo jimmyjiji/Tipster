@@ -149,7 +149,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if text != nil {
             print(text)
             print("##################################")
-            let result = parseText(text)
+            let result = parseText(text, stringsToFind: ["otal", "cash tend", "payment"])
             print(result)
             billAmount.text = ""
             billAmount.text = billAmount.text?.stringByAppendingString(result)
@@ -170,10 +170,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
      text: String to be parsed
      return: the price to be put into bill amount
     */
-    func parseText(text: String) -> String {
-                let containsTotal = text.lowercaseString.containsString("otal")
+    func parseText(text: String, stringsToFind: [String]) -> String {
+        for (var i = 0; i < stringsToFind.count; i++) {
+                let containsTotal = text.lowercaseString.containsString(stringsToFind[i])
                 if containsTotal {
-                    let startIndex = text.lowercaseString.rangeOfString("otal")?.endIndex
+                    let startIndex = text.lowercaseString.rangeOfString(stringsToFind[i])?.endIndex
                     let newString = text.substringFromIndex(startIndex!)
                     let endIndex = newString.rangeOfString("\n")?.endIndex
                     if endIndex != nil {
@@ -192,11 +193,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     }
                     displayError("Couldnt find new line char!")
                     return ""
-
-            } else {
-                    displayError("Couldn't find a total!")
-                    return ""
+            
+            }
+            
         }
+        displayError("Couldn't find a total!")
+        return ""
         
     }
     
@@ -241,34 +243,33 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         dismissViewControllerAnimated(true, completion: {
             let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
             self.image = self.scaleImage(selectedPhoto, maxDimension: 640)
-            self.enhanceImage()
+            self.binarizeImage()
+            self.gaussianFilter()
             self.performImageRecognition(self.image!)
         })
        
     }
     /**
-     Uses a Gaussian Filter and binarization to make the image clearer
+     Binarizes the image to reduce noise
      */
-    func enhanceImage() {
-        let easyImage = Image(UIImage: self.image!)!
-        let weights = [
-            1,  4,  6,  4, 1,
-            4, 16, 24, 16, 4,
-            6, 24, 36, 24, 6,
-            4, 16, 24, 16, 4,
-            1,  4,  6,  4, 1,
-        ]
-        let gaussianFilter = easyImage.map { x, y, pixel in
-            easyImage[(y - 2)...(y + 2)][(x - 2)...(x + 2)].map {
-                Pixel.weightedMean(zip(weights, $0))
-                } ?? pixel
-        }
-        self.image = gaussianFilter.UIImage
-
+    func binarizeImage() {
+        let easyImage = Image(UIImage: image!)!
         let binarize = easyImage.map { $0.gray < 128 ? Pixel.black : Pixel.white }
-        self.image = binarize.UIImage
+        image = binarize.UIImage
     }
-    
+    /**
+     Smooths the edges using gaussian blur
+    */
+    func gaussianFilter() {
+        let imageToBlur = CIImage(image: image!)!
+        let blurfilter = CIFilter(name: "CIGaussianBlur")!
+        blurfilter.setValue("0.08", forKey:kCIInputRadiusKey)
+        blurfilter.setValue(imageToBlur, forKey: "inputImage")
+        //let resultImage = blurfilter.valueForKey("outputImage") as! CIImage
+        self.image = UIImage(CGImage: CIContext(options:nil).createCGImage(blurfilter.outputImage!, fromRect:blurfilter.outputImage!.extent))
+      
+        
+    }
     /*
      Scales the image taken to be more user friendly with Tesseract
      image: Image to be scaled 

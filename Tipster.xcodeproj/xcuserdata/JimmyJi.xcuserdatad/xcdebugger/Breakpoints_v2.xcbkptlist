@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tipster/ViewController.swift"
-            timestampString = "473842894.762868"
+            timestampString = "473931375.200099"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
             landmarkName = "performImageRecognition(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tipster/ViewController.swift"
-            timestampString = "473845408.699242"
+            timestampString = "473939351.939692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "155"
-            endingLineNumber = "155"
-            landmarkName = "parseText(_:)"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
+            landmarkName = "binarizeImage()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Tipster/ViewController.swift"
-            timestampString = "473845408.699242"
+            timestampString = "473939351.939692"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "158"
-            endingLineNumber = "158"
-            landmarkName = "parseText(_:)"
+            startingLineNumber = "271"
+            endingLineNumber = "271"
+            landmarkName = "gaussianFilter()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
