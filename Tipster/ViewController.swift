@@ -83,6 +83,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
     }
     
+    @IBAction func getTaxAmount(sender: AnyObject) {
+        getBillAmount(self)
+    }
     /**
      Obtains the total bill by adding tax and tip from the bill text field
      */
@@ -93,11 +96,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         
         let billDouble = NSString(string: billAmount.text!).doubleValue
-        let tax = NSString(string: taxPercent.text!).doubleValue
+        let tax = NSString(string: taxPercent.text!).doubleValue / 100
             
         let taxOverall = tax * billDouble
         
-        taxAmount.text = String(format: "$%.2f", tax)
+        taxAmount.text = String(format: "$%.2f", taxOverall)
         
         let tip = billDouble * tipPercentage
         let total = tip + billDouble + taxOverall

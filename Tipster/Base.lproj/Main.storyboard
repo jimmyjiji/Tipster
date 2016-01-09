@@ -126,6 +126,9 @@
                                         <rect key="frame" x="62" y="16" width="72" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                        <connections>
+                                            <action selector="getTaxAmount:" destination="BYZ-38-t0r" eventType="editingChanged" id="Lm1-z3-86d"/>
+                                        </connections>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-tB-3Dn">
                                         <rect key="frame" x="142" y="21" width="13" height="21"/>
