@@ -19,4 +19,5 @@ The framework used for binarization is **EasyImagy** by koher
 
 As of 1/8/2016, it takes about 6~ seconds to read an image.
 
+As of 1/9/2016, it takes about 3~ seconds to read an image.
 ![Sample Image](https://github.com/jimmyjiji/Tipster/blob/master/Sample%20Tipster.jpg)
