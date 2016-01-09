@@ -16,15 +16,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var tipControl: UISegmentedControl!
     @IBOutlet weak var taxAmount: UILabel!
     @IBOutlet weak var billMove: UIView!
+    @IBOutlet weak var taxPercent: UITextField!
     
     @IBOutlet weak var onePerson: UILabel!
     @IBOutlet weak var twoPerson: UILabel!
     @IBOutlet weak var threePerson: UILabel!
     @IBOutlet weak var fourPerson: UILabel!
     @IBOutlet weak var fadeInCalculator: UIView!
+    
     var activityIndicator:UIActivityIndicatorView!
     var image: UIImage?
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +35,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.billMove.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
         tipAmount.text = "$0.00"
         onePerson.text = "$0.00"
-        
+        taxPercent.text = "8.875"
         self.fadeInCalculator.alpha = 0.0
 
         
@@ -92,12 +93,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         
         
         let billDouble = NSString(string: billAmount.text!).doubleValue
-        let tax = 0.08875 * billDouble
+        let tax = NSString(string: taxPercent.text!).doubleValue
+            
+        let taxOverall = tax * billDouble
         
         taxAmount.text = String(format: "$%.2f", tax)
         
         let tip = billDouble * tipPercentage
-        let total = tip + billDouble + tax
+        let total = tip + billDouble + taxOverall
         let one = total
         let two = total/2
         let three = total/3
@@ -146,13 +149,27 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         self.presentViewController(imageFromSource, animated: false, completion: nil)
     }
     /**
+     Performs what happens after the picture is taken
+     */
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        self.addActivityIndicator()
+        dismissViewControllerAnimated(true, completion: {
+            let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
+            self.image = self.scaleImage(selectedPhoto, maxDimension: 640)
+            self.binarizeImage()
+            self.gaussianFilter()
+            self.performImageRecognition(self.image!)
+        })
+        
+    }
+    /**
      Uses the Tesseract framework to perform the Image recognition
      image: The image it performs the image recognition on
      */
     func performImageRecognition(image: UIImage) {
         let tesseract = G8Tesseract()
         tesseract.language = "eng"
-        tesseract.engineMode = .TesseractCubeCombined
+        tesseract.engineMode = .TesseractOnly
         tesseract.pageSegmentationMode = .Auto
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_grayScale()
@@ -163,7 +180,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if text != nil {
             print(text)
             print("##################################")
-            let result = parseText(text, stringsToFind: ["otal", "cash tend", "payment"])
+            let result = parseText(text, stringsToFind: ["otal", "tota", "ota]", "cash", "$"])
             print(result)
             billAmount.text = ""
             billAmount.text = billAmount.text?.stringByAppendingString(result)
@@ -207,9 +224,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     }
                     displayError("Couldnt find new line char!")
                     return ""
-            
             }
-            
         }
         displayError("Couldn't find a total!")
         return ""
@@ -249,20 +264,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
 
     }
     
-    /**
-     Performs what happens after the picture is taken
-     */
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
-        self.addActivityIndicator()
-        dismissViewControllerAnimated(true, completion: {
-            let selectedPhoto = info[UIImagePickerControllerOriginalImage] as! UIImage
-            self.image = self.scaleImage(selectedPhoto, maxDimension: 640)
-            self.binarizeImage()
-            self.gaussianFilter()
-            self.performImageRecognition(self.image!)
-        })
-       
-    }
+   
     /**
      Binarizes the image to reduce noise
      */

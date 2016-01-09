@@ -26,12 +26,6 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EuY-w6-Udy">
                                 <rect key="frame" x="0.0" y="227" width="379" height="533"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="8.875%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-tB-3Dn">
-                                        <rect key="frame" x="81" y="20" width="57" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9fk-Qp-huU">
                                         <rect key="frame" x="24" y="94" width="326" height="29"/>
                                         <segments>
@@ -128,6 +122,17 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Person_icon_BLACK-01.svg.png" translatesAutoresizingMaskIntoConstraints="NO" id="VH3-Ac-xjB">
                                         <rect key="frame" x="104" y="285" width="30" height="31"/>
                                     </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="8.875" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yKW-q5-Bpw">
+                                        <rect key="frame" x="62" y="16" width="72" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="%" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3Q-tB-3Dn">
+                                        <rect key="frame" x="142" y="21" width="13" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -188,6 +193,7 @@
                         <outlet property="fourPerson" destination="pD0-PI-oGZ" id="DGY-bK-Wtl"/>
                         <outlet property="onePerson" destination="GJ8-qa-5lO" id="Hh9-7J-cOO"/>
                         <outlet property="taxAmount" destination="w1O-Nr-4bk" id="UE7-wf-UAf"/>
+                        <outlet property="taxPercent" destination="yKW-q5-Bpw" id="8Au-9u-kYh"/>
                         <outlet property="threePerson" destination="lV6-3H-dRL" id="qCk-UI-xL8"/>
                         <outlet property="tipAmount" destination="Gry-RK-ROR" id="qhw-Ot-mhz"/>
                         <outlet property="tipControl" destination="9fk-Qp-huU" id="dBZ-CB-V3H"/>
