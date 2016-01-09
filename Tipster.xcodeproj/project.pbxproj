@@ -18,7 +18,6 @@
 		AFCBFB2C1C39FEA300AD7CE1 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFCBFB2B1C39FEA300AD7CE1 /* CoreImage.framework */; };
 		AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */ = {isa = PBXBuildFile; fileRef = AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */; };
 		AFFF1CF61C3B54AB00DB5088 /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */; };
-		AFFF1CF71C3B562C00DB5088 /* EasyImagy.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */; };
 		AFFF1CF81C3B562C00DB5088 /* EasyImagy.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = AFFF1CF11C3B549700DB5088 /* EasyImagy.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
@@ -108,7 +107,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFFF1CF61C3B54AB00DB5088 /* EasyImagy.framework in Frameworks */,
-				AFFF1CF71C3B562C00DB5088 /* EasyImagy.framework in Frameworks */,
 				AFCBFB2C1C39FEA300AD7CE1 /* CoreImage.framework in Frameworks */,
 				AFCBFB2A1C39FE8E00AD7CE1 /* libstdc++.tbd in Frameworks */,
 				AFCBFB261C39FD7700AD7CE1 /* TesseractOCR.framework in Frameworks */,

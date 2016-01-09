@@ -201,7 +201,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                         if finalString != "" {
                             return finalString
                         } else if finalString == " " || finalString == "" {
-                            displayError("Found an total... but no price!")
+                            displayError("Found an \(stringsToFind[i]) ... but no price!")
                             return ""
                         }
                     }
@@ -279,7 +279,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let blurfilter = CIFilter(name: "CIGaussianBlur")!
         blurfilter.setValue("0.08", forKey:kCIInputRadiusKey)
         blurfilter.setValue(imageToBlur, forKey: "inputImage")
-        //let resultImage = blurfilter.valueForKey("outputImage") as! CIImage
         self.image = UIImage(CGImage: CIContext(options:nil).createCGImage(blurfilter.outputImage!, fromRect:blurfilter.outputImage!.extent))
       
         
