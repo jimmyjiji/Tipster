@@ -49,7 +49,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     /**
      Closes the keyboard on tap
-     Removes keyboard observer 
+     Removes keyboard observer
     */
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
@@ -244,7 +244,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if text != nil {
             print(text)
             print("##################################")
-            let result = parseText(text, stringsToFind: ["otal", "tota", "ota]", "cash", "$", "payment"])
+            let result = parseText(text, stringsToFind: ["Sub", "otal", "tota", "ota]", "cash", "$", "payment"])
             print(result)
             billAmount.text = ""
             billAmount.text = billAmount.text?.stringByAppendingString(result)
@@ -285,7 +285,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                             if finalString != "" {
                                 return finalString
                             } else {
-                                displayError("Found an \(stringsToFind[i]) ... but no valid price!")
+                                displayError("Found the string value \(stringsToFind[i]) ... but no valid price!")
                                 return ""
                             }
                         }
