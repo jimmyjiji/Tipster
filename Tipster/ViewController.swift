@@ -18,12 +18,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBOutlet weak var billMove: UIView!
     @IBOutlet weak var taxPercent: UITextField!
     
+    @IBOutlet weak var morePeopleTextField: UITextField!
     @IBOutlet weak var onePerson: UILabel!
     @IBOutlet weak var twoPerson: UILabel!
     @IBOutlet weak var threePerson: UILabel!
     @IBOutlet weak var fourPerson: UILabel!
-    @IBOutlet weak var fadeInCalculator: UIView!
+       @IBOutlet weak var fadeInCalculator: UIView!
     
+    @IBOutlet weak var morePeopleLabel: UILabel!
     var activityIndicator:UIActivityIndicatorView!
     var image: UIImage?
     
@@ -36,8 +38,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         tipAmount.text = "$0.00"
         onePerson.text = "$0.00"
         taxPercent.text = "8.875"
-        self.fadeInCalculator.alpha = 0.0
-
+        morePeopleTextField.text = "5"
+        self.fadeInCalculator.alpha = 0.0     
         
     }
 
@@ -47,9 +49,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     }
     /**
      Closes the keyboard on tap
+     Removes keyboard observer 
     */
     @IBAction func onTap(sender: AnyObject) {
         view.endEditing(true)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     /**
@@ -67,7 +71,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.fadeInCalculator.alpha = 0.0
             }, completion: completion)
     }
-    
+    /**
+     Shake to clear bill!
+     */
     override func canBecomeFirstResponder() -> Bool {
         return true
     }
@@ -79,6 +85,45 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             fadeOut()
         }
     }
+    @IBAction func getPeopleValue(sender: AnyObject) {
+       
+        let moreValue = NSString(string: morePeopleTextField.text!).doubleValue
+        var tipPercentages = [0.15, 0.18, 0.2, 0.25]
+        let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
+        
+        
+        let billDouble = NSString(string: billAmount.text!).doubleValue
+        let tax = NSString(string: taxPercent.text!).doubleValue / 100
+        
+        let taxOverall = tax * billDouble
+        
+        taxAmount.text = String(format: "$%.2f", taxOverall)
+        
+        let tip = billDouble * tipPercentage
+        let total = tip + billDouble + taxOverall
+        
+        let more = total/moreValue
+        if moreValue != 0 {
+            morePeopleLabel.text = String(format: "$%.2f", more)
+        } else {
+            morePeopleLabel.text = "$0.00"
+        }
+    }
+    /**
+     Moves keyboard accordingly to if user is editing number of people
+    */
+    @IBAction func morePeopleTouched(sender: AnyObject) {
+           NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillShow:"), name: UIKeyboardWillShowNotification, object: nil)
+    }
+    
+    /**
+     Moves keyboard accordingly to if user is editing number of people
+    */
+    @IBAction func morePeopleEnd(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("keyboardWillHide:"), name: UIKeyboardWillHideNotification, object: nil)
+        
+    }
+    
     /**
      Checks if the Bill text field has a value. 
      If the text field has a value, the calculator will fade in 
@@ -122,6 +167,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let two = total/2
         let three = total/3
         let four = total/4
+        let tempMore = total/5
         
         
         tipAmount.text = String(format: "$%.2f", tip)
@@ -129,6 +175,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         twoPerson.text = String(format: "$%.2f", two)
         threePerson.text = String(format: "$%.2f", three)
         fourPerson.text = String(format: "$%.2f", four)
+        morePeopleLabel.text = String(format: "$%.2f", tempMore)
         
     }
     
@@ -387,6 +434,28 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func removeActivityIndicator() {
         activityIndicator.removeFromSuperview()
         activityIndicator = nil
+    }
+    
+    /**
+     Notification that keyboard has been shown
+    */
+    func keyboardWillShow(notification: NSNotification) {
+        let keyboardFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        var myFrame: CGRect = self.view.frame;
+        myFrame.origin.y -= keyboardFrame.height;
+        self.view.frame = myFrame;
+        
+    }
+    
+    /**
+     Notification that keyboard has been hidden
+    */
+    func keyboardWillHide(notification: NSNotification) {
+        let keyboardFrame = (notification.userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue).CGRectValue()
+        var myFrame: CGRect = self.view.frame;
+        myFrame.origin.y += keyboardFrame.height;
+        self.view.frame = myFrame;
+        
     }
 }
 
