@@ -68,6 +68,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             }, completion: completion)
     }
     
+    override func canBecomeFirstResponder() -> Bool {
+        return true
+    }
+    
+    override func motionEnded(motion: UIEventSubtype, withEvent event: UIEvent?) {
+        if motion == .MotionShake {
+            billAmount.text = ""
+            getBillAmount(self)
+            fadeOut()
+        }
+    }
     /**
      Checks if the Bill text field has a value. 
      If the text field has a value, the calculator will fade in 
