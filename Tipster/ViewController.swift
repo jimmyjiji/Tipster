@@ -82,6 +82,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             fadeIn()
         }
     }
+    /**
+     Gets tax amount
+    */
     
     @IBAction func getTaxAmount(sender: AnyObject) {
         getBillAmount(self)
@@ -183,7 +186,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         if text != nil {
             print(text)
             print("##################################")
-            let result = parseText(text, stringsToFind: ["otal", "tota", "ota]", "cash", "$"])
+            let result = parseText(text, stringsToFind: ["otal", "tota", "ota]", "cash", "$", "payment"])
             print(result)
             billAmount.text = ""
             billAmount.text = billAmount.text?.stringByAppendingString(result)
@@ -213,16 +216,20 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                     let endIndex = newString.rangeOfString("\n")?.endIndex
                     if endIndex != nil {
                         let newerString = newString.substringToIndex(endIndex!)
-                        var finalString = newerString.stringByReplacingOccurrencesOfString("$", withString: "")
-                        finalString = finalString.stringByReplacingOccurrencesOfString(",", withString: ".")
-                        finalString = finalString.stringByReplacingOccurrencesOfString(" ", withString: "")
+                        var finalString = removeJunkFromString(newerString)
                         let matches = matchesForRegexInText("\\d+\\.\\d{2}", text: finalString)
                         finalString = matches.joinWithSeparator("")
                         if finalString != "" {
                             return finalString
                         } else if finalString == " " || finalString == "" {
-                            displayError("Found an \(stringsToFind[i]) ... but no price!")
-                            return ""
+                            let search = removeJunkFromString(text)
+                            finalString = searchAroundTotal(search)
+                            if finalString != "" {
+                                return finalString
+                            } else {
+                                displayError("Found an \(stringsToFind[i]) ... but no valid price!")
+                                return ""
+                            }
                         }
                     }
                     displayError("Couldnt find new line char!")
@@ -232,6 +239,41 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         displayError("Couldn't find a total!")
         return ""
         
+    }
+    /**
+     Removes unneccessary noise from string parsing 
+     string: String to remove noise
+     return: result parse
+    */
+    func removeJunkFromString(string: String) -> String{
+        var text = string
+        text = text.stringByReplacingOccurrencesOfString("$", withString: "")
+        text = text.stringByReplacingOccurrencesOfString("'", withString: ".")
+        text = text.stringByReplacingOccurrencesOfString(",", withString: ".")
+        text = text.stringByReplacingOccurrencesOfString(" ", withString: "")
+        return text
+    }
+    
+    /**
+     Last resort function that searches all values in the recognized text for a double value.
+     It then takes sorts the array, takes the two largest values and see if multiplying by the tax
+     rate is equivalent to the largest value. Otherwise, return nothing. 
+     text: Overall recognized text that has had junk removed
+     return: String value of subtotal
+    */
+    func searchAroundTotal(text: String) -> String{
+        let matches = matchesForRegexInText("\\d+\\.\\d{2}", text: text)
+        var doubleArray = matches.map{ Double($0) ?? 0 }
+        doubleArray = doubleArray.sort()
+        let guessedSubTotal = doubleArray[doubleArray.count-2]
+        let supposedTotal = doubleArray[doubleArray.count-1]
+        let guessedTotal = guessedSubTotal * 1.08875
+        if guessedTotal > supposedTotal-0.1 && guessedTotal < supposedTotal+0.1 {
+            let string = String(format: "%0.2f", guessedSubTotal)
+            return string
+        } else {
+            return ""
+        }
     }
     
     /**
@@ -282,7 +324,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func gaussianFilter() {
         let imageToBlur = CIImage(image: image!)!
         let blurfilter = CIFilter(name: "CIGaussianBlur")!
-        blurfilter.setValue("0.08", forKey:kCIInputRadiusKey)
+        blurfilter.setValue("0.1", forKey:kCIInputRadiusKey)
         blurfilter.setValue(imageToBlur, forKey: "inputImage")
         self.image = UIImage(CGImage: CIContext(options:nil).createCGImage(blurfilter.outputImage!, fromRect:blurfilter.outputImage!.extent))
       

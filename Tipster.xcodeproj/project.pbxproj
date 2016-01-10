@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF1D8C9F1C40E62800778CE9 /* Images-2.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AF1D8C9E1C40E62800778CE9 /* Images-2.xcassets */; };
 		AF6A6A901C194F9E00D15A93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */; };
 		AF6A6A921C194F9E00D15A93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6A6A911C194F9E00D15A93 /* ViewController.swift */; };
 		AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AF6A6A931C194F9E00D15A93 /* Main.storyboard */; };
@@ -81,6 +82,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF1D8C9E1C40E62800778CE9 /* Images-2.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Images-2.xcassets"; sourceTree = "<group>"; };
 		AF6A6A8C1C194F9E00D15A93 /* Tipster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AF6A6A8F1C194F9E00D15A93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AF6A6A911C194F9E00D15A93 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 				AF6A6A931C194F9E00D15A93 /* Main.storyboard */,
 				AFF4D6821C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png */,
 				AF6A6A9B1C194F9E00D15A93 /* Info.plist */,
+				AF1D8C9E1C40E62800778CE9 /* Images-2.xcassets */,
 			);
 			path = Tipster;
 			sourceTree = "<group>";
@@ -335,6 +338,7 @@
 			files = (
 				AFF4D6831C1ABD8A005AEF44 /* Person_icon_BLACK-01.svg.png in Resources */,
 				AFCBFB251C39FD7700AD7CE1 /* tessdata in Resources */,
+				AF1D8C9F1C40E62800778CE9 /* Images-2.xcassets in Resources */,
 				AF6A6A951C194F9E00D15A93 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -497,6 +501,8 @@
 		AF6A6AB51C194F9E00D15A93 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -522,6 +528,8 @@
 		AF6A6AB61C194F9E00D15A93 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

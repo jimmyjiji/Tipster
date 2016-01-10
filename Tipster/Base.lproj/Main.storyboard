@@ -161,22 +161,26 @@
                                         </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NeR-1Z-TWx">
-                                        <rect key="frame" x="105" y="90" width="169" height="30"/>
-                                        <state key="normal" title="Take a picture of the Bill!"/>
+                                        <rect key="frame" x="20" y="104" width="139" height="34"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <state key="normal" title="Take a picture">
+                                            <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="getPictureBill:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CgX-rW-VvF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8f-j2-oL8">
+                                        <rect key="frame" x="187" y="106" width="159" height="30"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="20"/>
+                                        <state key="normal" title="Upload a picture "/>
+                                        <connections>
+                                            <action selector="uploadPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SYe-Rq-m7X"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g8f-j2-oL8">
-                                <rect key="frame" x="106" y="195" width="166" height="30"/>
-                                <state key="normal" title="Upload exisiting picture "/>
-                                <connections>
-                                    <action selector="uploadPicture:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SYe-Rq-m7X"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.5"/>
