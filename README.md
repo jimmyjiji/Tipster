@@ -9,7 +9,7 @@ ways to evenly split the bill up to the base value of 4 people. Beyond that ther
 
 #Scanning Functionality!
 
-The app now has receipt scanning functionality. In case for whatever reason you are too lazy to type in the bill, you can simply take a picture of the receipt and it will scan the photo for the word "Total" and input the result into the bill statement. *Works with varying success rates *
+The app now has receipt scanning functionality. In case for whatever reason you are too lazy to type in the bill, you can simply take a picture of the receipt and it will scan the photo for the word "Total" and input the result into the bill statement. *Works with varying success rates*
 
 The framework used for optical character recognition (OCR) is **Tesseract**. Engine used is Tesseract and Cube.
 
