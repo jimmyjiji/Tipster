@@ -32,9 +32,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.view.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
+        //self.view.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
+        applyGradient()
         self.fadeInCalculator.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 255, alpha: 1)
-        self.billMove.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
+        //self.billMove.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
         tipAmount.text = "$0.00"
         onePerson.text = "$0.00"
         taxPercent.text = "8.875"
@@ -44,6 +45,19 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let defaults = NSUserDefaults.standardUserDefaults()
         tipControl.selectedSegmentIndex = defaults.integerForKey("saveTip")
         
+    }
+    
+    func applyGradient() {
+        let topColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
+        let bottomColor = UIColor(red: 51/255, green: 153/255, blue: 255, alpha: 1)
+        let gradientColors = [topColor.CGColor, bottomColor.CGColor]
+        let gradientLocations = [0.0, 1.0]
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocations
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
     }
 
     override func didReceiveMemoryWarning() {
