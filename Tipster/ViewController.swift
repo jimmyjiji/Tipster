@@ -32,10 +32,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        //self.view.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
         applyGradient()
         self.fadeInCalculator.backgroundColor = UIColor(red: 233/255, green: 233/255, blue: 255, alpha: 1)
-        //self.billMove.backgroundColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
         tipAmount.text = "$0.00"
         onePerson.text = "$0.00"
         taxPercent.text = "8.875"
@@ -46,7 +44,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         tipControl.selectedSegmentIndex = defaults.integerForKey("saveTip")
         
     }
-    
+    /**
+     Applies gradient to app
+    */
     func applyGradient() {
         let topColor = UIColor(red: 204/255, green: 229/255, blue: 255, alpha: 1)
         let bottomColor = UIColor(red: 51/255, green: 153/255, blue: 255, alpha: 1)
@@ -256,7 +256,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     func performImageRecognition(image: UIImage) {
         let tesseract = G8Tesseract()
         tesseract.language = "eng"
-        tesseract.engineMode = .TesseractOnly
+        tesseract.engineMode = .TesseractCubeCombined
         tesseract.pageSegmentationMode = .Auto
         tesseract.maximumRecognitionTime = 60.0
         tesseract.image = image.g8_grayScale()
@@ -277,6 +277,8 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 fadeIn()
             }
         } else {
+            getBillAmount(self)
+            fadeOut()
             displayError("Empty Text")
         }
         removeActivityIndicator()
