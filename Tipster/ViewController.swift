@@ -102,12 +102,18 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             fadeOut()
         }
     }
+    /**
+     Saves if the tip percentage has changed
+    */
     @IBAction func tipPercentChanged(sender: AnyObject) {
         let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "saveTip")
         defaults.synchronize()
         
     }
+    /**
+     Obtains number of people value and updates calculator
+    */
     @IBAction func getPeopleValue(sender: AnyObject) {
        
         let moreValue = NSString(string: morePeopleTextField.text!).doubleValue
@@ -265,10 +271,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
      
         let text = tesseract.recognizedText
         if text != nil {
-            print(text)
-            print("##################################")
+            //print(text)
+            //print("##################################")
             let result = parseText(text, stringsToFind: ["Sub", "otal", "tota", "ota]", "cash", "$", "payment"])
-            print(result)
+            //print(result)
             billAmount.text = ""
             billAmount.text = billAmount.text?.stringByAppendingString(result)
             
