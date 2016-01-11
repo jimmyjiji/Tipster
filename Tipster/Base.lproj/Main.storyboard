@@ -72,6 +72,7 @@
                                         </segments>
                                         <connections>
                                             <action selector="getBillAmount:" destination="BYZ-38-t0r" eventType="valueChanged" id="hPG-sm-Wwj"/>
+                                            <action selector="tipPercentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="GBg-pw-lVm"/>
                                         </connections>
                                     </segmentedControl>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tip" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-f4-xgB">

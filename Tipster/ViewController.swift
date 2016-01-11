@@ -39,7 +39,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         onePerson.text = "$0.00"
         taxPercent.text = "8.875"
         morePeopleTextField.text = "5"
-        self.fadeInCalculator.alpha = 0.0     
+        self.fadeInCalculator.alpha = 0.0
+        
+        let defaults = NSUserDefaults.standardUserDefaults()
+        tipControl.selectedSegmentIndex = defaults.integerForKey("saveTip")
         
     }
 
@@ -84,6 +87,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             getBillAmount(self)
             fadeOut()
         }
+    }
+    @IBAction func tipPercentChanged(sender: AnyObject) {
+        let defaults = NSUserDefaults.standardUserDefaults()
+        defaults.setInteger(tipControl.selectedSegmentIndex, forKey: "saveTip")
+        defaults.synchronize()
+        
     }
     @IBAction func getPeopleValue(sender: AnyObject) {
        
@@ -149,7 +158,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
      Obtains the total bill by adding tax and tip from the bill text field
      */
     @IBAction func getBillAmount(sender: AnyObject) {
-     
+        
         var tipPercentages = [0.15, 0.18, 0.2, 0.25]
         let tipPercentage = tipPercentages[tipControl.selectedSegmentIndex]
         
