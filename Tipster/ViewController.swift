@@ -354,12 +354,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         let matches = matchesForRegexInText("\\d+\\.\\d{2}", text: text)
         var doubleArray = matches.map{ Double($0) ?? 0 }
         doubleArray = doubleArray.sort()
-        let guessedSubTotal = doubleArray[doubleArray.count-2]
-        let supposedTotal = doubleArray[doubleArray.count-1]
-        let guessedTotal = guessedSubTotal * 1.08875
-        if guessedTotal > supposedTotal-0.1 && guessedTotal < supposedTotal+0.1 {
-            let string = String(format: "%0.2f", guessedSubTotal)
-            return string
+        if doubleArray.count > 2 {
+            let guessedSubTotal = doubleArray[doubleArray.count-2]
+            let supposedTotal = doubleArray[doubleArray.count-1]
+            let guessedTotal = guessedSubTotal * 1.08875
+            if guessedTotal > supposedTotal-0.1 && guessedTotal < supposedTotal+0.1 {
+                let string = String(format: "%0.2f", guessedSubTotal)
+                return string
+            } else {
+                return ""
+            }
         } else {
             return ""
         }
